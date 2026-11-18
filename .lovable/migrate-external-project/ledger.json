@@ -1,0 +1,97 @@
+{
+  "source": "github",
+  "repository": "https://github.com/aadi-devs/EmpirialBotMain",
+  "capabilities": [
+    {
+      "capability": "code",
+      "source": "TanStack dashboard and Discord ticket bot",
+      "outcome": "migrate",
+      "status": "in_progress",
+      "next_action": "Bring the dashboard into this project and preserve bot source and deployment guidance."
+    },
+    {
+      "capability": "schema",
+      "source": "No schema found; Drizzle schema and migration journal are blank",
+      "outcome": "migrate",
+      "status": "pending",
+      "next_action": "Create a Cloud schema for staff profiles, administrator access, tickets, and ticket messages."
+    },
+    {
+      "capability": "records",
+      "source": "No export supplied; dashboard currently uses in-code mock tickets",
+      "outcome": "pending",
+      "status": "pending",
+      "next_action": "Build against Cloud and request exports after preview if existing production records need migration."
+    },
+    {
+      "capability": "auth identities",
+      "source": "No real auth implementation found; dashboard simulates Discord administrator access",
+      "outcome": "replace with Discord-only authentication",
+      "status": "pending",
+      "next_action": "Implement Discord-only sign-in with protected dashboard access; first administrator email is deadman9306@gmail.com."
+    },
+    {
+      "capability": "authorization",
+      "source": "In-browser admin/non-admin simulation only; user supplied deadman9306@gmail.com as first administrator",
+      "outcome": "migrate",
+      "status": "pending",
+      "next_action": "Replace simulation with database-backed administrator authorization and row access controls; grant only after the account is verified."
+    },
+    {
+      "capability": "uploaded file bytes",
+      "source": "No uploaded-file storage or file export found",
+      "outcome": "not detected",
+      "status": "not_applicable",
+      "next_action": "None."
+    },
+    {
+      "capability": "external providers",
+      "source": "Discord bot API via discord.js",
+      "outcome": "preserve",
+      "status": "pending",
+      "next_action": "Preserve the bot source; live Discord operation requires its existing bot credentials and configuration."
+    },
+    {
+      "capability": "public endpoints",
+      "source": "None found",
+      "outcome": "not detected",
+      "status": "not_applicable",
+      "next_action": "None."
+    },
+    {
+      "capability": "callbacks and webhooks",
+      "source": "No non-auth callback or webhook found",
+      "outcome": "not detected",
+      "status": "not_applicable",
+      "next_action": "None."
+    },
+    {
+      "capability": "schedules",
+      "source": "None found",
+      "outcome": "not detected",
+      "status": "not_applicable",
+      "next_action": "None."
+    },
+    {
+      "capability": "secrets",
+      "source": "Discord token and guild/channel/role IDs are external runtime settings; no values supplied",
+      "outcome": "preserve provider configuration",
+      "status": "pending",
+      "next_action": "Request Discord credentials through secure Secrets before live bot verification."
+    },
+    {
+      "capability": "cutover",
+      "source": "No live provider cutover requested",
+      "outcome": "not requested",
+      "status": "pending",
+      "next_action": "Keep the existing Discord bot deployment available while the dashboard is migrated."
+    },
+    {
+      "capability": "verification",
+      "source": "Preview and provider credentials not yet verified",
+      "outcome": "verify",
+      "status": "pending",
+      "next_action": "Verify login, protected ticket access, and a persistent ticket write after Cloud setup."
+    }
+  ]
+}
