@@ -60,7 +60,7 @@ async function applyCustomNameStyle(guildId) {
   try {
     const payload = {
       nick: 'EMPIRIAL',
-      display_name_font_id: 5, // 8Bit font
+      display_name_font_id: 8, // 8Bit (Pixelify Sans) font
       display_name_effect_id: 5, // Pop
       display_name_colors: [0] // Black
     };
