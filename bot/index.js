@@ -11,7 +11,8 @@ import {
   TextInputStyle,
   ChannelType,
   PermissionFlagsBits,
-  AttachmentBuilder
+  AttachmentBuilder,
+  ActivityType
 } from 'discord.js';
 import dotenv from 'dotenv';
 
@@ -83,6 +84,10 @@ async function applyCustomNameStyle(guildId) {
 client.once('ready', async () => {
   console.log(`[AFX Ticket Bot] Logged in as ${client.user.tag}`);
   console.log(`[AFX Ticket Bot] Active on Guild: ${process.env.GUILD_ID}`);
+  client.user.setPresence({
+    activities: [{ name: '◈ EMPIRIAL • Made by Victus', type: ActivityType.Custom }],
+    status: 'online'
+  });
   await applyCustomNameStyle(process.env.GUILD_ID);
 });
 
