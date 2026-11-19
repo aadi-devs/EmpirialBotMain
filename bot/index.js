@@ -61,8 +61,8 @@ async function applyCustomNameStyle(guildId) {
     const payload = {
       nick: 'EMPIRIAL',
       display_name_font_id: 8, // 8Bit (Pixelify Sans) font
-      display_name_effect_id: 5, // Pop
-      display_name_colors: [0] // Black
+      display_name_effect_id: 3, // Neon effect
+      display_name_colors: [16711680] // Red (#FF0000)
     };
     const res = await fetch(`https://discord.com/api/v9/guilds/${guildId}/members/@me`, {
       method: 'PATCH',
