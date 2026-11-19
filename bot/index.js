@@ -55,9 +55,35 @@ const TICKET_CATEGORIES = {
   }
 };
 
-client.once('ready', () => {
+async function applyCustomNameStyle(guildId) {
+  if (!guildId || !process.env.DISCORD_TOKEN) return;
+  try {
+    const payload = {
+      nick: 'EMPIRAL',
+      display_name_font_id: 7, // Medieval (Font selected)
+      display_name_effect_id: 5, // Pop
+      display_name_colors: [0] // Black
+    };
+    const res = await fetch(`https://discord.com/api/v9/guilds/${guildId}/members/@me`, {
+      method: 'PATCH',
+      headers: {
+        'Authorization': `Bot ${process.env.DISCORD_TOKEN}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(payload)
+    });
+    if (res.ok) {
+      console.log(`[AFX Ticket Bot] Display Name Style (Medieval, Pop, Black) active on guild ${guildId}`);
+    }
+  } catch (err) {
+    console.error('[AFX Ticket Bot] Failed to apply display name style:', err);
+  }
+}
+
+client.once('ready', async () => {
   console.log(`[AFX Ticket Bot] Logged in as ${client.user.tag}`);
   console.log(`[AFX Ticket Bot] Active on Guild: ${process.env.GUILD_ID}`);
+  await applyCustomNameStyle(process.env.GUILD_ID);
 });
 
 // Command & Interaction Handler
