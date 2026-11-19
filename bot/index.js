@@ -82,6 +82,7 @@ client.on('interactionCreate', async (interaction) => {
             `*All tickets are strictly confidential and encrypted in our internal logs.*`
           )
           .setColor(0xE11D48)
+          .setThumbnail(client.user.displayAvatarURL())
           .setFooter({ text: 'AFX Ticket Command Engine • 24/7 Operations', iconURL: interaction.guild.iconURL() })
           .setTimestamp();
 
